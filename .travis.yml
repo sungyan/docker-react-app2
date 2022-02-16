@@ -7,7 +7,7 @@ services:
 
 before_install:
  - echo "start createing an image with dockerfile"
- - docker build -t syan1/docker-react-app2 -f Dockerfile .
+ - docker build -t syan1/docker-react-app2 -f Dockerfile.dev .
 
 script:
  - docker  run -e CI=true syan1/docker-react-app2 npm run test -- --coverage
