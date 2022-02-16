@@ -1,0 +1,14 @@
+sudo: required
+
+language:generic
+
+services:
+ - docker
+
+ before_install:
+  - echo "start createing an image with dockerfile"
+  - docker build -t sayn1/docker-react-app -f Dockerfile.dev
+
+  script:
+   - docker  run -e CI=true
+
