@@ -7,21 +7,21 @@ services:
 
 before_install:
   - echo "start Creating an image with dockerfile"
-  - docker build -t syan1/docker-react-app3 -f Dockerfile.dev .
+  - docker build -t syan1/docker-react-app -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true syan1/docker-react-app3 npm run test -- --coverage
+  - docker run -e CI=true syan1/docker-react-app npm run test -- --coverage
 
 # after_success:
 #   - echo "Test Success!"
 
 deploy:
   provider: elasticbeanstalk
-  region: "ap-northeast-2"
-  app: "docker-react-app3"
+  region: "us-east-1"
+  app: "docker-react-app"
   env: "Dockerreactapp3-env"
-  bucket_name: "elasticbeanstalk-ap-northeast-2-174517951557"
-  bucket_path: "docker-react-app3"
+  bucket_name: "elasticbeanstalk-us-east-1-174517951557"
+  bucket_path: "docker-react-app"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
